@@ -12,7 +12,10 @@ struct LoginPage: View
     {
        
         TextField("username", text: $username)
-        TextField("password", text: $password)
+            .autocapitalization(.none)
+        SecureField("password", text: $password)
+            .autocapitalization(.none)
+        
         
         Text("Login")
         .onTapGesture

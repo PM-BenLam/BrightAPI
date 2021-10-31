@@ -41,13 +41,13 @@ struct MainPage: View
     }
     
     
-    @State var energyData = String(get.current()["data"].arrayValue[0].arrayValue[1].intValue)
+    @State var energyData = String(get.current()["data"].arrayValue[safe: 0]?.arrayValue[1].intValue ?? 0)
     
     let rate = 1.6
     var body: some View
     {
         Button(action: {
-            energyData = String(get.current()["data"].arrayValue[0].arrayValue[1].intValue)
+            energyData = String(get.current()["data"].arrayValue[safe: 0]?.arrayValue[1].intValue ?? 0)
         }, label: {
             Text("\(energyData) W")
                 .font(.system(size: 35, design: .monospaced))

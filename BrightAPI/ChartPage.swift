@@ -41,7 +41,7 @@ struct ChartPage: View
         for data in JSON
         {
              
-            if data.arrayValue[1].float != nil
+            if data.arrayValue[safe: 1]?.float != nil
             {
                 sum += data.arrayValue[1].floatValue
             }

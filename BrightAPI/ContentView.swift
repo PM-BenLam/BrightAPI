@@ -13,6 +13,14 @@ extension Double {
     }
 }
 
+extension Collection where Indices.Iterator.Element == Index
+{
+   public subscript(safe index: Index) -> Iterator.Element?
+    {
+     return (startIndex <= index && index < endIndex) ? self[index] : nil
+   }
+}
+
 class AppManager: ObservableObject
 {
     static let sharedInstance = AppManager()
